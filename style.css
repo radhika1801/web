@@ -132,7 +132,7 @@ li a:hover {
       flex: 1 1 100%; 
   }
   ul {
-      align-items: center; 
+      align-items: center; /* Center align the list items */
   }
 }
 

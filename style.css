@@ -8,12 +8,10 @@
   font-style: normal;
 }
 
-/* General Reset */
 h1 {
   margin-bottom: 0px;
 }
 
-/* CSS files add styling rules to your content */
 
 a:link {
   font-style:initial;
@@ -30,14 +28,14 @@ body {
   font-family: 'Exo';
   font-weight: 300;
   margin: 0;
-  padding: 20px; /* Add some padding for spacing */
+  padding: 20px;
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-  align-items: flex-start; /* Align content to the left */
-  justify-content: flex-start; /* Align content to the top */
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  box-sizing: border-box;
 }
 
 h1 {
@@ -59,7 +57,7 @@ h2 {
 }
 
 button {
-  font-family: "Exo"; /* Fixed missing semicolon */
+  font-family: "Exo";
   background-color: black;
   border: none;
   color: white;
@@ -82,11 +80,11 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex; /* Flexbox for the list */
-  flex-direction: column; /* Stack list items vertically */
-  gap: 1em; /* Add spacing between items */
+  display: flex; 
+  flex-direction: column; 
+  gap: 1em; 
   width: 100%;
-  max-width: 600px; /* Limit the width of the list */
+  max-width: 600px; 
   padding: 20px;
   box-sizing: border-box;
 }
@@ -106,36 +104,35 @@ li a:hover {
   color: #A05625; /* Change color on hover */
 }
 
-/* Flexbox container for layout */
 .flex-container {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  gap: 2%; /* Add spacing between items */
+  flex-wrap: wrap; 
+  gap: 2%; 
   width: 100%;
-  max-width: 1200px; /* Limit the width of the container */
+  max-width: 1200px;
   padding: 20px;
   box-sizing: border-box;
-  justify-content: space-between; /* Distribute items evenly */
+  justify-content: space-between; 
 }
 
 .flex-item {
-  flex: 1 1 calc(33.333% - 2%); /* Create three equal columns */
+  flex: 1 1 calc(33.333% - 2%); 
   box-sizing: border-box;
   margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 900px) {
   .flex-item {
-      flex: 1 1 calc(50% - 2%); /* Switch to two columns on medium screens */
+      flex: 1 1 calc(50% - 2%); 
   }
 }
 
 @media only screen and (max-width: 600px) {
   .flex-item {
-      flex: 1 1 100%; /* Switch to one column on small screens */
+      flex: 1 1 100%; 
   }
   ul {
-      align-items: center; /* Center align the list items */
+      align-items: center; 
   }
 }
 

@@ -1,0 +1,160 @@
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.exo-<uniquifier> {
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+/* General Reset */
+h1 {
+  margin-bottom: 0px;
+}
+
+/* CSS files add styling rules to your content */
+
+a:link {
+  font-style:initial;
+  text-decoration: none;
+}
+a:hover {
+  font-style: italic;
+  font-weight: 300;
+}
+
+body {
+  background-color: #F7F7F5;
+  color: #474747;
+  font-family: 'Exo';
+  font-weight: 300;
+  margin: 0;
+  padding: 20px; /* Add some padding for spacing */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: flex-start; /* Align content to the left */
+  justify-content: flex-start; /* Align content to the top */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+h1 {
+  font-family: 'Exo';
+  font-weight: 400;1
+  color: #1B3E37;
+  font-size: 18pt;
+  margin-top: 1em;
+}
+
+h1 a {
+  background-color: #FFFFFF;
+  color: #A05625;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 18pt;
+}
+
+button {
+  font-family: "Exo"; /* Fixed missing semicolon */
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  width: 100%;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 30px 2px;
+  cursor: pointer;
+}
+
+p {
+  font-family: 'Exo';
+  font-size: 12pt;
+  line-height: 18pt;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex; /* Flexbox for the list */
+  flex-direction: column; /* Stack list items vertically */
+  gap: 1em; /* Add spacing between items */
+  width: 100%;
+  max-width: 600px; /* Limit the width of the list */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+li {
+  font-family: 'Exo';
+  font-size: 12pt;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+li a:hover {
+  color: #A05625; /* Change color on hover */
+}
+
+/* Flexbox container for layout */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 2%; /* Add spacing between items */
+  width: 100%;
+  max-width: 1200px; /* Limit the width of the container */
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: space-between; /* Distribute items evenly */
+}
+
+.flex-item {
+  flex: 1 1 calc(33.333% - 2%); /* Create three equal columns */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  .flex-item {
+      flex: 1 1 calc(50% - 2%); /* Switch to two columns on medium screens */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .flex-item {
+      flex: 1 1 100%; /* Switch to one column on small screens */
+  }
+  ul {
+      align-items: center; /* Center align the list items */
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+
+.myBox {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.fullwidth {
+  width: 100%;
+  float: left;
+}
+  

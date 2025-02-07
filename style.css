@@ -1,11 +1,10 @@
-/* General reset */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
 body {
     background-color: #F7F7F5;
     color: #474747;
@@ -22,7 +21,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Headings */
 h1, h2 {
     font-family: 'Exo', sans-serif;
     margin-top: 1em;
@@ -34,10 +32,9 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 22pt; /* Larger size for main headings */
+    font-size: 22pt;
 }
 
-/* Paragraphs */
 p {
     font-family: 'Exo', sans-serif;
     font-size: 14pt;
@@ -54,7 +51,6 @@ p.reflection {
     margin-bottom: 20px;
 }
 
-/* Button styling */
 button {
     font-family: 'Exo', sans-serif;
     background-color: black;
@@ -69,21 +65,18 @@ button {
     cursor: pointer;
 }
 
-/* Sketch container */
 #sketch-container {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
 
-/* Main content container */
 main {
     max-width: 800px;
-    margin: 100px auto 0 auto; /* Center content and add space for navigation */
+    margin: 100px auto 0 auto;
     padding: 20px;
 }
 
-/* Flexbox container */
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -101,7 +94,6 @@ main {
     margin-bottom: 20px;
 }
 
-/* Media queries for responsiveness */
 @media only screen and (max-width: 900px) {
     .flex-item {
         flex: 1 1 calc(50% - 2%);
@@ -117,7 +109,6 @@ main {
     }
 }
 
-/* Lists */
 ul {
     margin: 0;
     padding: 0;
@@ -145,7 +136,6 @@ li a:hover {
     color: #A05625;
 }
 
-/* Links */
 a:link {
     font-style: initial;
     text-decoration: none;
@@ -156,7 +146,6 @@ a:hover {
     font-weight: 300;
 }
 
-/* Images */
 img {
     max-width: 100%;
     height: auto;
@@ -165,7 +154,6 @@ img {
     margin-right: 2%;
 }
 
-/* Utility classes */
 .myBox {
     padding: 10px;
     margin: 10px;
@@ -177,23 +165,21 @@ img {
     float: left;
 }
 
-/* Author styling */
 .author {
     position: absolute;
-    top: 50px; /* Consistent with navigation */
+    top: 50px;
     right: 20px;
     font-size: 1.2rem;
     font-weight: bold;
     color: black;
 }
 
-/* Navigation bar */
 .nav {
     position: absolute;
-    top: 50px; /* Same as author */
+    top: 50px; 
     left: 20px;
     display: flex;
-    gap: 15px; /* Add spacing between links */
+    gap: 15px;
 }
 
 .nav a {
@@ -207,5 +193,5 @@ img {
 
 .nav a:hover {
     text-decoration: underline;
-    color: #A05625; /* Accent color for hover state */
+    color: #A05625;
 }

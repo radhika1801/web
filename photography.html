@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography | CC Portfolio</title>
+  <link rel="icon" href="snow.png" type="image/png">
+  <!-- Google Fonts: Exo -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      background-color: #F7F7F5;
+      color: black;
+      font-family: 'Exo', sans-serif;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Navigation bar */
+    .nav {
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav a {
+      font-family: 'Exo', sans-serif;
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: text-decoration 0.3s ease, color 0.3s ease, font-style 0.3s ease;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+      color: #A05625;
+      font-style: italic;
+    }
+
+    /* Author styling */
+    .author {
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black;
+    }
+
+    /* Page heading */
+    h1 {
+      margin-top: 100px;
+      font-size: 28px;
+      font-weight: 400;
+      color: #1B3E37;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Photography section */
+    .photo-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      width: 90%;
+      max-width: 800px;
+      gap: 40px; /* Increased spacing between images */
+    }
+
+    .photo-container {
+      position: relative;
+      width: 100%; /* Ensure images are responsive */
+      max-width: 600px; /* Limit width for larger displays */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow around the box */
+      overflow: hidden; /* Ensure the image doesn't spill outside the container */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-container:hover {
+      transform: scale(1.02); /* Slight zoom on hover */
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+    }
+
+    .photo-container img {
+      width: 100%; /* Ensure the image fills the container */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Title bar */
+    .photo-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      background-color: rgba(0, 0, 0, 0.6); /* Darker translucent background */
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease;
+    }
+
+    /* Show title on hover */
+    .photo-container:hover .photo-title {
+      opacity: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .photo-gallery {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Author name -->
+  <div class="author">Radhika Malpani</div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="works.html">Works</a>
+    <a href="photography.html">Photography</a>
+  </div>
+
+  <!-- Page Heading -->
+  <h1>Photography</h1>
+
+  <!-- Photo Gallery -->
+  <div class="photo-gallery">
+    <!-- Photo 1 -->
+    <div class="photo-container">
+      <img src="1.jpg" alt="Photo 1">
+      <div class="photo-title">Creamers Field, Alaska</div>
+    </div>
+
+    <!-- Photo 2 -->
+    <div class="photo-container">
+      <img src="2.jpg" alt="Photo 2">
+      <div class="photo-title">Shirakawago, Gifu</div>
+    </div>
+
+    <!-- Photo 3 -->
+    <div class="photo-container">
+      <img src="3.jpg" alt="Photo 3">
+      <div class="photo-title">Fushimi Inari Taisha, Kyoto</div>
+    </div>
+
+    <!-- Photo 4 -->
+    <div class="photo-container">
+      <img src="4.jpg" alt="Photo 4">
+      <div class="photo-title">Chena Hot Spring, Fairbanks</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
-<title>Assignment 1: Lost and Found</title>
+    <link rel="icon" href="snow.png" type="image/png">
   </head>
   <body>
     <main>
@@ -13,32 +13,162 @@
     <script src="hw3.js"></script>
   </body>
 </html>
-
 <!DOCTYPE html>
 <html lang="en">
+  
+
+<style>
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+ 
+  body {
+    background-color: #F7F7F5;
+    color: black;
+    font-family: 'Exo', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  h1, h2 {
+    font-family: 'Exo', sans-serif;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    color: #1B3E37;
+    font-size: 18pt;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-family: 'Exo', sans-serif;
+    font-size: 14pt;
+    line-height: 1.6; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    text-align: justify; 
+    color: #474747;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50px; 
+    left: 20px;
+    display: flex;
+    gap: 15px; 
+  }
+
+  .nav a {
+    font-family: 'Exo', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+  }
+
+  .nav a:hover {
+    text-decoration: underline;
+    color: #A05625;
+  }
+
+  .author {
+    position: absolute;
+    top: 50px; 
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black; 
+  }
+
+  main {
+    max-width: 800px;
+    margin: 100px auto 0 auto;
+    padding: 20px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+
+  li {
+    font-family: 'Exo', sans-serif;
+    font-size: 14pt; 
+  }
+
+  li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  li a:hover {
+    color: #A05625; 
+  }
+
+  a:link {
+    font-style: initial;
+    text-decoration: none;
+  }
+
+  a:hover {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .myBox {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+  }
+</style>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 1: Lost and Found</title>
-    
-    <!-- Include p5.js libraries -->
+    <title>Lost and Found</title>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
     
-    <!-- Link to external CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Google Fonts: Exo -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="works.html">Works</a>
+    <a href="photography.html">Photography</a>
+  </div>
+    
+    <div class="author">Radhika Malpani</div>
     <div id="sketch-container"></div>
-    <!-- Main content -->
     <main>
-      <!-- Sketch container -->
-      <div id="sketch-container"></div> <!-- p5.js sketch will render here -->
-      <!-- Reflection -->
+     
+      <div id="sketch-container"></div> 
+
+    
       <section class="reflection">
         <h2>Reflection</h2>
         <p>
@@ -47,7 +177,7 @@
       </section>
     </main>
 
-    <!-- Include the p5.js sketch -->
+
     <script src="hw1.js"></script>
   </body>
 </html>

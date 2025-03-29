@@ -1,15 +1,15 @@
-
+/* === Reset and Base Styles === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    background-color: #F7F7F5;
-    color: #474747;
+  }
+  
+  body {
     font-family: 'Exo', sans-serif;
     font-weight: 300;
+    color: #474747;
+    background-color: #F7F7F5;
     margin: 0;
     padding: 20px;
     width: 100%;
@@ -18,24 +18,38 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    box-sizing: border-box;
-}
-
-h1, h2 {
+  }
+  
+  /* === Home Page Specific === */
+  .home-body {
+    background-image: url('fairbanks.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white;
+    padding: 0;
+  }
+  
+  /* === Typography === */
+  h1, h2 {
     font-family: 'Exo', sans-serif;
     margin-top: 1em;
     margin-bottom: 0.5em;
     font-weight: 400;
     color: #1B3E37;
+  }
+  
+  h1 {
+    font-size: 22pt;
+  }
+  
+  h2 {
     font-size: 18pt;
     margin-bottom: 10px;
-}
-
-h1 {
-    font-size: 22pt;
-}
-
-p {
+  }
+  
+  p {
     font-family: 'Exo', sans-serif;
     font-size: 14pt;
     line-height: 1.6;
@@ -43,15 +57,57 @@ p {
     margin-bottom: 20px;
     text-align: justify;
     color: #474747;
-}
-
-p.reflection {
+  }
+  
+  p.reflection {
     font-size: 14pt;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-button {
+  }
+  
+  /* === Navigation === */
+  .nav {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav a {
+    font-family: 'Exo', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+  }
+  
+  .home-body .nav a {
+    color: white;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+    color: #A05625;
+  }
+  
+  /* === Author Info === */
+  .author {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .home-body .author {
+    color: white;
+  }
+  
+  /* === Buttons === */
+  button {
     font-family: 'Exo', sans-serif;
     background-color: black;
     border: none;
@@ -63,21 +119,16 @@ button {
     font-size: 16px;
     margin: 30px 2px;
     cursor: pointer;
-}
-
-#sketch-container {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-main {
+  }
+  
+  /* === Layout === */
+  main {
     max-width: 800px;
     margin: 100px auto 0 auto;
     padding: 20px;
-}
-
-.flex-container {
+  }
+  
+  .flex-container {
     display: flex;
     flex-wrap: wrap;
     gap: 2%;
@@ -86,30 +137,22 @@ main {
     padding: 20px;
     box-sizing: border-box;
     justify-content: space-between;
-}
-
-.flex-item {
+  }
+  
+  .flex-item {
     flex: 1 1 calc(33.333% - 2%);
     box-sizing: border-box;
     margin-bottom: 20px;
-}
-
-@media only screen and (max-width: 900px) {
-    .flex-item {
-        flex: 1 1 calc(50% - 2%);
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .flex-item {
-        flex: 1 1 100%;
-    }
-    ul {
-        align-items: center;
-    }
-}
-
-ul {
+  }
+  
+  #sketch-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* === Lists === */
+  ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -119,79 +162,104 @@ ul {
     width: 100%;
     max-width: 600px;
     box-sizing: border-box;
-}
-
-li {
+  }
+  
+  li {
     font-family: 'Exo', sans-serif;
     font-size: 14pt;
-}
-
-li a {
+  }
+  
+  li a {
     color: black;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-li a:hover {
+  }
+  
+  li a:hover {
     color: #A05625;
-}
-
-a:link {
+  }
+  
+  /* === Links === */
+  a:link {
     font-style: initial;
     text-decoration: none;
-}
-
-a:hover {
+  }
+  
+  a:hover {
     font-style: italic;
     font-weight: 300;
-}
-
-img {
+  }
+  
+  /* === Images === */
+  img {
     max-width: 100%;
     height: auto;
     display: inline-block;
     margin-bottom: 2%;
     margin-right: 2%;
-}
-
-.myBox {
+  }
+  
+  /* === Utility Classes === */
+  .myBox {
     padding: 10px;
     margin: 10px;
     border: 1px solid black;
-}
-
-.fullwidth {
+  }
+  
+  .fullwidth {
     width: 100%;
     float: left;
-}
-
-.author {
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: black;
-}
-
-.nav {
-    position: absolute;
-    top: 50px; 
-    left: 20px;
+  }
+  
+  /* === Responsive Design === */
+  @media only screen and (max-width: 900px) {
+    .flex-item {
+      flex: 1 1 calc(50% - 2%);
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .flex-item {
+      flex: 1 1 100%;
+    }
+    ul {
+      align-items: center;
+    }
+  }
+/* === Works Page Specific === */
+.works-main {
     display: flex;
-    gap: 15px;
-}
-
-.nav a {
-    font-family: 'Exo', sans-serif;
-    color: black;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: text-decoration 0.3s ease, color 0.3s ease;
-}
-
-.nav a:hover {
-    text-decoration: underline;
-    color: #A05625;
-}
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 100px auto 0 auto;
+    padding: 20px;
+    gap: 50px;
+    position: relative;
+  }
+  
+  .vertical-line {
+    width: 2px;
+    background-color: #A05625;
+    height: auto;
+    align-self: stretch;
+    margin: 0 20px;
+    min-height: 300px; /* Ensures the line has a minimum height */
+  }
+  
+  /* Responsive design for works page */
+  @media (max-width: 768px) {
+    .works-main {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+  
+    .vertical-line {
+      width: 80%;
+      height: 2px;
+      margin: 20px 0;
+      min-height: 0;
+    }
+  }

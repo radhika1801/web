@@ -1,101 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 2: Experimental Typography</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experimental Typography | Advanced CC</title>
+  <link rel="icon" href="../snow.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Include p5.js libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+    body {
+      background-color: #F7F7F5;
+      color: black;
+      font-family: 'Exo', sans-serif;
+      font-weight: 300;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;900&display=swap" rel="stylesheet">
+    h1, h2 {
+      font-family: 'Exo', sans-serif;
+      font-weight: 400;
+      color: #1B3E37;
+    }
 
-    <style>
-      /* General Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    h1 {
+      font-size: 28pt;
+      text-align: center;
+      margin: 0 0 30px 0;
+    }
+
+    h2 {
+      font-size: 22pt;
+      margin: 30px 0 20px 0;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50px; 
+      left: 20px;
+      display: flex;
+      gap: 15px; 
+    }
+
+    .nav a {
+      font-family: 'Exo', sans-serif;
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: text-decoration 0.3s ease, color 0.3s ease;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+      color: #A05625;
+    }
+
+    .author {
+      position: absolute;
+      top: 50px; 
+      right: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black; 
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 100px auto 50px auto;
+      padding: 20px;
+    }
+
+    .sketch-container {
+      width: 100%;
+      margin: 50px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 40px;
+    }
+
+    .sketch-container:last-child {
+      border-bottom: none;
+    }
+
+    .sketch-frame {
+      width: 100%;
+      height: 600px;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 8px 15px;
+      background-color: #1B3E37;
+      color: white;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link:hover {
+      background-color: #A05625;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24pt;
       }
-
-      /* Body Styling */
-      body {
-        background-color: #F7F7F5;
-        color: #474747;
-        font-family: 'Exo', sans-serif;
-        font-weight: 300;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        overflow-y: auto; /* Enable vertical scrolling */
-        min-height: 100vh;
+      
+      h2 {
+        font-size: 20pt;
       }
-
-      /* Sketch Containers */
-      .sketch-container {
-        width: 100%; /* Full width */
-        max-width: 600px; /* Limit to 600px for larger screens */
-        height: 400px; /* Fixed height for sketches */
-        margin: 20px auto; /* Center and add vertical spacing */
-        border: 2px solid #ddd; /* Optional border for visual separation */
-        border-radius: 8px;
-        overflow: hidden; /* Prevent overflow */
-        background-color: #fff; /* Add a white background for clarity */
+      
+      main {
+        padding: 15px;
       }
-
-      /* Navigation Bar */
-      .nav {
-        position: absolute;
-        top: 20px; 
-        left: 20px;
-        display: flex;
-        gap: 15px;
+      
+      .sketch-frame {
+        height: 450px;
       }
-
-      .nav a {
-        font-family: 'Exo', sans-serif;
-        color: black;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        transition: text-decoration 0.3s ease, color 0.3s ease;
-      }
-
-      .nav a:hover {
-        text-decoration: underline;
-        color: #A05625;
-      }
-
-      /* Author Section */
-      .author {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: black;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <div class="nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="works.html">Works</a>
-      <a href="photography.html">Photography</a>
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="nav">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../works.html">Works</a>
+    <a href="../photography.html">Photography</a>
+  </div>
+  
+  <!-- Author -->
+  <div class="author">Radhika Malpani</div>
+  
+  <!-- Main Content -->
+  <main>
+    <h1>Experimental Typography</h1>
+    
+    <!-- First Sketch - Clouds -->
+    <div class="sketch-container">
+      <h2>Clouds Typography</h2>
+      <iframe src="clouds.html" class="sketch-frame" frameborder="0"></iframe>
     </div>
-
-    <!-- Author Name -->
-    <div class="author">Radhika Malpani</div>
-
-    <!-- Include Sketch Files -->
-    <script src="cloud.js"></script>
-    <script src="glow.js"></script>
-    <script src="satellite.js"></script>
-  </body>
+    
+    <!-- Second Sketch - Glow -->
+    <div class="sketch-container">
+      <h2>Glow Typography</h2>
+      <iframe src="glow.html" class="sketch-frame" frameborder="0"></iframe>
+    </div>
+    
+    <!-- Third Sketch - Satellite -->
+    <div class="sketch-container">
+      <h2>Satellite Typography</h2>
+      <iframe src="satellite.html" class="sketch-frame" frameborder="0"></iframe>
+    </div>
+    
+  </main>
+</body>
 </html>

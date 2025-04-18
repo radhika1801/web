@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dojo Survey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #F7F7F5;
+      font-family: 'Exo', sans-serif;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #1B3E37;
+    }
+
+    /* Survey Form */
+    .container {
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .question {
+      display: none;
+    }
+
+    .question.active {
+      display: block;
+    }
+
+    .question label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: block;
+      color: #1B3E37;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .option {
+      padding: 10px 20px;
+      background-color: #f4f4f4;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    .option:hover {
+      background-color: #e0ebf9;
+      border-color: #007BFF;
+    }
+
+    .option.selected {
+      background-color: #007BFF;
+      color: white;
+      border-color: #0056b3;
+    }
+
+    .other-input {
+      display: none;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .other-input.active {
+      display: block;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      margin-top: 30px;
+    }
+
+    .progress-bar-wrapper {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      width: 100%;
+      height: 25px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: #007BFF;
+      width: 0%;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .progress-text {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Navigation */
+    .nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav a {
+      font-family: 'Exo', sans-serif;
+      color: black;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #A05625;
+    }
+
+    /* Author Info */
+    .author {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Dojo Survey</h1>
+  </header>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <a href="../index.html">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../works.html">Works</a>
+    <a href="../photography.html">Photography</a>
+  </div>
+
+  <!-- Author Info -->
+  <div class="author">Radhika Malpani</div>
+
+  <!-- Survey Form -->
+  <main class="container">
+    <form id="dojoSurvey">
+
+      <!-- Question 1 -->
+      <div class="question active">
+        <label>1. What is your gender?</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">Male</div>
+          <div class="option" onclick="toggleSelect(this)">Female</div>
+          <div class="option" onclick="toggleSelect(this)">Non-binary</div>
+          <div class="option" onclick="toggleOtherInput(this, 'genderOther')">Other</div>
+        </div>
+        <input type="text" id="genderOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <label>2. What is your age range?</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">10-18</div>
+          <div class="option" onclick="toggleSelect(this)">19-25</div>
+          <div class="option" onclick="toggleSelect(this)">26-35</div>
+          <div class="option" onclick="toggleSelect(this)">36-45</div>
+          <div class="option" onclick="toggleSelect(this)">46-55</div>
+          <div class="option" onclick="toggleOtherInput(this, 'ageOther')">Other</div>
+        </div>
+        <input type="text" id="ageOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <label>3. Which martial arts do you practice? (Choose up to 3)</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">Judo</div>
+          <div class="option" onclick="toggleSelect(this)">Karate</div>
+          <div class="option" onclick="toggleSelect(this)">Taekwondo</div>
+          <div class="option" onclick="toggleSelect(this)">Brazilian Jiu Jitsu</div>
+          <div class="option" onclick="toggleOtherInput(this, 'martialArtsOther')">Other</div>
+        </div>
+        <input type="text" id="martialArtsOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 4 -->
+      <div class="question">
+        <label>4. Why do you practice martial arts?</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">Self-defense</div>
+          <div class="option" onclick="toggleSelect(this)">For fun</div>
+          <div class="option" onclick="toggleSelect(this)">Cultural interest</div>
+          <div class="option" onclick="toggleSelect(this)">Competition</div>
+          <div class="option" onclick="toggleSelect(this)">Health or sports</div>
+          <div class="option" onclick="toggleOtherInput(this, 'reasonOther')">Other</div>
+        </div>
+        <input type="text" id="reasonOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question">
+        <label>5. What is your favorite martial arts technique?</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">Arm techniques</div>
+          <div class="option" onclick="toggleSelect(this)">Shoulder techniques</div>
+          <div class="option" onclick="toggleSelect(this)">Defense</div>
+          <div class="option" onclick="toggleSelect(this)">Attack</div>
+          <div class="option" onclick="toggleOtherInput(this, 'techniqueOther')">Other</div>
+        </div>
+        <input type="text" id="techniqueOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question">
+        <label>6. Why is it your favorite technique?</label>
+        <textarea placeholder="Explain your answer"></textarea>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question">
+        <label>7. What is the most challenging technique?</label>
+        <textarea placeholder="Describe the challenge"></textarea>
+      </div>
+
+      <!-- Question 8 -->
+      <div class="question">
+        <label>8. Have you been injured while practicing martial arts?</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">No</div>
+          <div class="option" onclick="toggleSelect(this)">Yes, fully recovered</div>
+          <div class="option" onclick="toggleSelect(this)">Required surgery</div>
+          <div class="option" onclick="toggleSelect(this)">Long-term recovery</div>
+          <div class="option" onclick="toggleOtherInput(this, 'injuryOther')">Other</div>
+        </div>
+        <input type="text" id="injuryOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question">
+        <label>9. Why did you get injured (if applicable)?</label>
+        <textarea placeholder="Explain your injury"></textarea>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question">
+        <label>10. How do you feel in the dojo?</label>
+        <div class="options">
+          <div class="option" onclick="toggleSelect(this)">Liberated</div>
+          <div class="option" onclick="toggleSelect(this)">Excited</div>
+          <div class="option" onclick="toggleSelect(this)">Challenged</div>
+          <div class="option" onclick="toggleSelect(this)">Focused</div>
+          <div class="option" onclick="toggleOtherInput(this, 'dojoFeelOther')">Other</div>
+        </div>
+        <input type="text" id="dojoFeelOther" class="other-input" placeholder="Please specify">
+      </div>
+
+      <!-- Question 11 -->
+      <div class="question">
+        <label>11. What improvements would you like to see in the dojo?</label>
+        <textarea placeholder="Describe improvements you'd like to see"></textarea>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="button" id="prevBtn" onclick="prevQuestion()" disabled>Back</button>
+        <button type="button" id="nextBtn" onclick="nextQuestion()">Next</button>
+      </div>
+    </form>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="progress-text" id="progressText">0% Complete</div>
+    </div>
+  </main>
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentQuestionIndex = 0;
+
+    function updateProgress() {
+      const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+      progressBar.style.width = `${progress}%`;
+      progressText.textContent = `${Math.round(progress)}% Complete`;
+    }
+
+    function showQuestion(index) {
+      questions.forEach((question, i) => {
+        question.classList.toggle('active', i === index);
+      });
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === questions.length - 1;
+      updateProgress();
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(currentQuestionIndex);
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion(currentQuestionIndex);
+      }
+    }
+
+    function toggleSelect(element) {
+      element.classList.toggle('selected');
+    }
+
+    function toggleOtherInput(element, inputId) {
+      const input = document.getElementById(inputId);
+      input.classList.toggle('active');
+    }
+
+    updateProgress();
+  </script>
+
+</body>
+</html>

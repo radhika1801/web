@@ -12,6 +12,16 @@
     </main>
     <script src="experimental_camera.js"></script>
   </body>
+    <!-- Navigation -->
+    <div class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../works.html">Works</a>
+      <a href="../photography.html">Photography</a>
+    </div>
+    
+    <!-- Author -->
+    <div class="author">Radhika Malpani</div>
 </html>
 
 
@@ -138,6 +148,37 @@
     margin: 10px;
     border: 1px solid black;
   }
+  .nav {
+      position: absolute;
+      top: 50px; 
+      left: 20px;
+      display: flex;
+      gap: 15px; 
+    }
+
+    .nav a {
+      font-family: 'Exo', sans-serif;
+      color: black;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: text-decoration 0.3s ease, color 0.3s ease;
+    }
+
+    .nav a:hover {
+      text-decoration: underline;
+      color: #A05625;
+    }
+
+    .author {
+      position: absolute;
+      top: 50px; 
+      right: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: black; 
+    }
+
 </style>
   <head>
     <meta charset="utf-8" />

@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Mood Oracle</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo:300,400,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Exo', sans-serif;
+            font-weight: 300;
+            color: #474747;
+            background-color: #F7F7F5;
+            margin: 0;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        
+
+        .home-body {
+            background-image: url('fairbanks.JPG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+            padding: 0;
+        }
+        
+        h1, h2 {
+            font-family: 'Exo', sans-serif;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            font-weight: 400;
+            color: #1B3E37;
+        }
+        
+        h1 {
+            font-size: 22pt;
+        }
+        
+        h2 {
+            font-size: 18pt;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-family: 'Exo', sans-serif;
+            font-size: 14pt;
+            line-height: 1.6;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #474747;
+        }
+        
+        p.reflection {
+            font-size: 14pt;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* === Navigation === */
+        .nav {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .nav a {
+            font-family: 'Exo', sans-serif;
+            color: black;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: text-decoration 0.3s ease, color 0.3s ease;
+        }
+        
+        .home-body .nav a {
+            color: white;
+        }
+        
+        .nav a:hover {
+            text-decoration: underline;
+            color: #A05625;
+        }
+        
+        /* === Author Info === */
+        .author {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: black;
+            z-index: 100;
+        }
+        
+        .home-body .author {
+            color: white;
+        }
+        
+        button {
+            font-family: 'Exo', sans-serif;
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 30px 2px;
+            cursor: pointer;
+        }
+    
+        main {
+            max-width: 800px;
+            margin: 100px auto 0 auto;
+            padding: 20px;
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2%;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+            justify-content: space-between;
+        }
+        
+        .flex-item {
+            flex: 1 1 calc(33.333% - 2%);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        
+        #sketch-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+       
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        
+        li {
+            font-family: 'Exo', sans-serif;
+            font-size: 14pt;
+        }
+        
+        li a {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        li a:hover {
+            color: #A05625;
+        }
+        
+        
+        a:link {
+            font-style: initial;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            font-style: italic;
+            font-weight: 300;
+        }
+        
+        /* === Images === */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            margin-bottom: 2%;
+            margin-right: 2%;
+        }
+        
+        /* === Utility Classes === */
+        .myBox {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+        
+        .fullwidth {
+            width: 100%;
+            float: left;
+        }
+        
+        .works-main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 100px auto 0 auto;
+            padding: 20px;
+            gap: 50px;
+            position: relative;
+        }
+        
+        .vertical-line {
+            width: 2px;
+            background-color: #A05625;
+            height: auto;
+            align-self: stretch;
+            margin: 0 20px;
+            min-height: 300px; 
+        }
+        
+    
+        header {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            color: #1B3E37;
+            font-weight: 400;
+        }
+        
+        /* === Oracle Specific Styles === */
+        .oracle-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 120px auto 40px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cosmic-bodies {
+            width: 100%;
+            height: 50vh;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: rgba(27, 62, 55, 0.05);
+        }
+        
+        .planet, .moon, .star {
+            position: absolute;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .planet {
+            background: radial-gradient(circle at 30% 30%, #5a9e78, #1B3E37);
+            box-shadow: 0 0 20px rgba(27, 62, 55, 0.7);
+        }
+        
+        .planet:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(27, 62, 55, 0.9);
+        }
+        
+        .planet.selected {
+            box-shadow: 0 0 40px rgba(160, 86, 37, 1);
+        }
+        
+        .moon {
+            background: radial-gradient(circle at 30% 30%, #f0f0f0, #c8c8c8);
+            box-shadow: 0 0 15px rgba(200, 200, 200, 0.8);
+        }
+        
+        .moon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(200, 200, 200, 1);
+        }
+        
+        .moon.selected {
+            box-shadow: 0 0 30px rgba(160, 86, 37, 1);
+        }
+        
+        .star {
+            background: radial-gradient(circle at 30% 30%, #ffefc3, #e6b32e);
+            box-shadow: 0 0 15px rgba(230, 179, 46, 0.6);
+        }
+        
+        .star:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(230, 179, 46, 0.9);
+        }
+        
+        .star.selected {
+            box-shadow: 0 0 35px rgba(160, 86, 37, 1);
+        }
+        
+        .mood-input {
+            width: 100%;
+            padding: 15px;
+            font-family: 'Exo', sans-serif;
+            font-size: 14pt;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #F7F7F5;
+            color: #474747;
+        }
+        
+        .mood-input:focus {
+            outline: none;
+            border-color: #A05625;
+            box-shadow: 0 0 8px rgba(160, 86, 37, 0.3);
+        }
+        
+        .mood-indicator {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14pt;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            font-family: 'Exo', sans-serif;
+            text-align: center;
+        }
+        
+        .positive {
+            background-color: rgba(90, 158, 120, 0.2);
+            color: #1B3E37;
+        }
+        
+        .neutral {
+            background-color: rgba(71, 71, 71, 0.1);
+            color: #474747;
+        }
+        
+        .negative {
+            background-color: rgba(160, 86, 37, 0.2);
+            color: #A05625;
+        }
+        
+        .oracle-button {
+            background-color: #1B3E37;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Exo', sans-serif;
+            font-size: 14pt;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .oracle-button:hover {
+            background-color: #A05625;
+        }
+        
+        .oracle-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .instruction {
+            font-family: 'Exo', sans-serif;
+            font-size: 14pt;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #1B3E37;
+        }
+        
+        .celestial-count {
+            font-family: 'Exo', sans-serif;
+            font-size: 12pt;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #474747;
+        }
+        
+        .background-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-star {
+            position: absolute;
+            background-color: #A05625;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 5s infinite;
+        }
+        
+        .bg-star:nth-child(3n) {
+            background-color: #1B3E37;
+        }
+        
+        .bg-star:nth-child(3n+1) {
+            background-color: #e6b32e;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+        
+        .result-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .result-content {
+            width: 90%;
+            max-width: 600px;
+            background-color: #F7F7F5;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.5s ease;
+        }
+        
+        .close-result {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            color: #1B3E37;
+        }
+        
+        .close-result:hover {
+            opacity: 1;
+            color: #A05625;
+        }
+        
+        .oracle-title {
+            font-size: 22pt;
+            margin-bottom: 20px;
+            color: #1B3E37;
+            font-family: 'Exo', sans-serif;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        .oracle-message {
+            font-size: 14pt;
+            margin-bottom: 25px;
+            font-style: italic;
+            line-height: 1.6;
+            color: #474747;
+            font-family: 'Exo', sans-serif;
+        }
+        
+        .cosmic-info {
+            font-size: 12pt;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: rgba(27, 62, 55, 0.05);
+            color: #474747;
+            font-family: 'Exo', sans-serif;
+        }
+        
+        .celestial-influence {
+            font-size: 14pt;
+            margin-bottom: 25px;
+            color: #474747;
+            font-family: 'Exo', sans-serif;
+        }
+        
+        .action-advice {
+            font-size: 14pt;
+            color: #A05625;
+            margin-top: 20px;
+            font-family: 'Exo', sans-serif;
+            text-align: center;
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9;
+        }
+        
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            border-top: 8px solid #A05625;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* === Responsive Design === */
+        @media only screen and (max-width: 900px) {
+            .flex-item {
+                flex: 1 1 calc(50% - 2%);
+            }
+            
+            .oracle-container {
+                margin-top: 150px;
+                padding: 20px;
+            }
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .flex-item {
+                flex: 1 1 100%;
+            }
+            
+            ul {
+                align-items: center;
+            }
+            
+            .nav, .author {
+                position: relative;
+                top: 10px;
+                left: 0;
+                right: 0;
+                justify-content: center;
+            }
+            
+            .author {
+                text-align: center;
+                margin-top: 10px;
+            }
+            
+            .oracle-container {
+                margin-top: 180px;
+                padding: 15px;
+            }
+            
+            .mood-input, .oracle-message, p, .instruction {
+                font-size: 12pt;
+            }
+            
+            h1 {
+                font-size: 18pt;
+            }
+            
+            h2, .oracle-title {
+                font-size: 16pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../works.html">Works</a>
+        <a href="../photography.html">Photography</a>
+    </div>
+
+    <!-- Author Info -->
+    <div class="author">Radhika Malpani</div>
+    
+    <div class="background-stars" id="backgroundStars"></div>
+    
+    <div class="oracle-container">
+        <header>
+            <h1>Cosmic Mood Oracle</h1>
+            <p>Share your feelings and select celestial bodies to reveal your personalized cosmic guidance.</p>
+        </header>
+        
+        <div class="input-section">
+            <input type="text" id="moodInput" class="mood-input" placeholder="Describe how you're feeling right now...">
+            <div class="mood-indicator" id="moodIndicator"></div>
+        </div>
+        
+        <div class="cosmic-bodies" id="cosmicBodies"></div>
+        
+        <div class="controls">
+            <div class="instruction" id="instruction">Select 3 celestial bodies that draw your attention</div>
+            <div class="celestial-count" id="celestialCount">Selected: 0/3</div>
+            <button id="divineBtn" class="oracle-button" disabled>Consult the Oracle</button>
+        </div>
+    </div>
+    
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <span class="close-result" id="closeResult">×</span>
+            <h2 class="oracle-title">The Oracle Speaks</h2>
+            <div class="oracle-message" id="fortune"></div>
+            <div class="cosmic-info" id="cosmicInfo"></div>
+            <div class="celestial-influence" id="celestialInfluence"></div>
+            <div class="action-advice" id="actionAdvice"></div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let selectedBodies = [];
+        const maxSelections = 3;
+        let moodCategory = 'neutral';
+        let astronomicalData = null;
+        
+        // Create background stars
+        function createBackgroundStars() {
+            const starsContainer = document.getElementById('backgroundStars');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('bg-star');
+                
+                // Random position
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = `${0.1 + Math.random() * 0.4}rem`;
+                star.style.width = size;
+                star.style.height = size;
+                
+                // Random animation delay
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Create interactive celestial bodies
+        function createCelestialBodies() {
+            const container = document.getElementById('cosmicBodies');
+            
+            // Create 3 planets
+            for (let i = 0; i < 3; i++) {
+                createCelestialBody('planet', container);
+            }
+            
+            // Create 4 moons
+            for (let i = 0; i < 4; i++) {
+                createCelestialBody('moon', container);
+            }
+            
+            // Create 10 stars
+            for (let i = 0; i < 10; i++) {
+                createCelestialBody('star', container);
+            }
+        }
+        
+        function createCelestialBody(type, container) {
+            const body = document.createElement('div');
+            body.classList.add(type);
+            
+            // Random position
+            body.style.left = `${5 + Math.random() * 90}%`;
+            body.style.top = `${5 + Math.random() * 85}%`;
+            
+            // Size based on type
+            let size;
+            if (type === 'planet') {
+                size = 60 + Math.random() * 40;
+            } else if (type === 'moon') {
+                size = 30 + Math.random() * 20;
+            } else { // star
+                size = 10 + Math.random() * 15;
+            }
+            body.style.width = `${size}px`;
+            body.style.height = `${size}px`;
+            
+            // Add data attributes
+            body.dataset.type = type;
+            body.dataset.id = Math.floor(Math.random() * 1000);
+            
+            // Add event listener
+            body.addEventListener('click', handleCelestialSelection);
+            
+            container.appendChild(body);
+            
+            // Add animation
+            if (type === 'planet' || type === 'moon') {
+                animateOrbit(body);
+            } else {
+                animateTwinkle(body);
+            }
+        }
+        
+        function animateOrbit(element) {
+            const duration = 30 + Math.random() * 70;
+            const centerX = 50;
+            const centerY = 50;
+            const radiusX = Math.random() * 30 + 10;
+            const radiusY = Math.random() * 20 + 5;
+            
+            let angle = Math.random() * 360;
+            
+            function orbit() {
+                angle += 0.05;
+                if (angle >= 360) angle = 0;
+                
+                const x = centerX + radiusX * Math.cos(angle * Math.PI / 180);
+                const y = centerY + radiusY * Math.sin(angle * Math.PI / 180);
+                
+                element.style.left = `${x}%`;
+                element.style.top = `${y}%`;
+                
+                requestAnimationFrame(orbit);
+            }
+            
+            orbit();
+        }
+        
+        function animateTwinkle(element) {
+            setInterval(() => {
+                const brightness = 0.7 + Math.random() * 0.3;
+                element.style.opacity = brightness;
+            }, 1000 + Math.random() * 2000);
+        }
+        
+        // Handle celestial body selection
+        function handleCelestialSelection(e) {
+            const body = e.target;
+            
+            // If already selected, deselect
+            if (body.classList.contains('selected')) {
+                body.classList.remove('selected');
+                selectedBodies = selectedBodies.filter(item => item.id !== body.dataset.id);
+            } 
+            // If not at max selections, select
+            else if (selectedBodies.length < maxSelections) {
+                body.classList.add('selected');
+                selectedBodies.push({
+                    id: body.dataset.id,
+                    type: body.dataset.type
+                });
+            }
+            
+            updateSelectionCount();
+            checkDivineButtonStatus();
+        }
+        
+        function updateSelectionCount() {
+            document.getElementById('celestialCount').textContent = `Selected: ${selectedBodies.length}/${maxSelections}`;
+        }
+        
+        function checkDivineButtonStatus() {
+            const moodInput = document.getElementById('moodInput').value.trim();
+            const divineBtn = document.getElementById('divineBtn');
+            
+            if (selectedBodies.length === maxSelections && moodInput !== '') {
+                divineBtn.removeAttribute('disabled');
+            } else {
+                divineBtn.setAttribute('disabled', true);
+            }
+        }
+        
+        // Fortune data
+        const fortunes = {
+            positive: [
+                "The cosmic alignment celebrates your radiant energy. This is a powerful time to manifest your dreams, as the universe amplifies your positive intentions.",
+                "Your optimistic spirit has caught the attention of celestial forces. Expect synchronicities that guide you toward unexpected opportunities.",
+                "The planetary positions suggest a phase of expansion and growth. Your positive outlook creates a magnetic field that attracts beneficial experiences.",
+                "Like a star in ascendance, your bright energy is creating ripples across the cosmos. This is an excellent time to initiate projects that require confidence and enthusiasm."
+            ],
+            neutral: [
+                "The cosmos reflects your balanced state. This is an ideal time for reflection and planning, as you can see multiple perspectives with clarity.",
+                "Celestial patterns suggest you're in a transitional phase. Stay present and adaptable as the universe reveals its next direction for your journey.",
+                "The stars recognize your contemplative energy. This is a beneficial period for gathering information and considering options before making significant decisions.",
+                "Your centered state resonates with the harmony of distant galaxies. This equilibrium allows you to make choices based on wisdom rather than impulse."
+            ],
+            negative: [
+                "The cosmos acknowledges your struggle with compassion. This challenging phase is preparing the foundations for significant growth and unexpected blessings.",
+                "The planetary movements suggest this difficult energy is temporary. Like an eclipse that passes, darkness will give way to renewed perspective.",
+                "The universe hears your pain and is orchestrating unseen forces to guide you toward healing. Trust that this challenging phase has purpose in your larger journey.",
+                "The celestial bodies recognize your difficult emotions as a catalyst for transformation. What feels heavy now is breaking open new pathways for light to enter."
+            ]
+        };
+        
+        // Celestial influence messages
+        const celestialInfluences = {
+            planet: {
+                positive: "The planets you've selected amplify your positive energy, suggesting expansion and abundance in your path.",
+                neutral: "The planetary influences in your selection indicate a time of stable growth and measured progress.",
+                negative: "The planets you've chosen suggest that current challenges are temporary and contain valuable lessons."
+            },
+            moon: {
+                positive: "The lunar energy you've selected enhances your intuition and emotional intelligence during this fortunate phase.",
+                neutral: "The moon's influence in your selection suggests paying attention to subtle emotional cues and rhythms.",
+                negative: "The lunar bodies you've chosen indicate emotional healing is available through acknowledging and honoring your feelings."
+            },
+            star: {
+                positive: "The stars you've selected shine brightly on your aspirations, illuminating paths to your highest potential.",
+                neutral: "The stellar energy you've chosen suggests maintaining perspective and seeing the bigger picture in your situation.",
+                negative: "The stars in your selection remind you that even in darkness, guidance and inspiration remain constant."
+            }
+        };
+        
+        // Action advice based on mood and selections
+        const actionAdvice = {
+            positive: [
+                "Harness this positive energy by taking bold steps toward a goal you've been contemplating.",
+                "Share your vibrant energy with others who might need inspiration in their lives.",
+                "Document your current insights to reference during future challenging times.",
+                "Expand your horizons through learning something new that excites your spirit."
+            ],
+            neutral: [
+                "Practice mindfulness to maintain your balanced perspective during upcoming changes.",
+                "Consider areas of your life that might benefit from recalibration or adjustment.",
+                "Connect with nature to strengthen your natural state of equilibrium.",
+                "Use this centered energy to mediate conflicts or solve complex problems."
+            ],
+            negative: [
+                "Allow yourself compassionate self-care without judgment about how you're feeling.",
+                "Seek meaningful connection with someone who understands your current experience.",
+                "Express your emotions through creative outlets like writing, art, or music.",
+                "Remember that asking for support is a sign of wisdom, not weakness."
+            ]
+        };
+        
+        // Mood analysis function
+        function analyzeMood(text) {
+            text = text.toLowerCase();
+            
+            const positiveWords = ["happy", "joy", "excited", "good", "great", "amazing", "wonderful", "thrilled", "hopeful", "optimistic", "content", "confident", "peaceful", "energetic", "inspired", "grateful", "blessed", "delighted", "cheerful", "excellent"];
+            
+            const negativeWords = ["sad", "upset", "depressed", "anxious", "worried", "stressed", "unhappy", "angry", "frustrated", "disappointed", "exhausted", "lost", "lonely", "hurt", "afraid", "scared", "confused", "overwhelmed", "tired", "broken"];
+            
+            let positiveCount = 0;
+            let negativeCount = 0;
+            
+            positiveWords.forEach(word => {
+                if (text.includes(word)) positiveCount++;
+            });
+            
+            negativeWords.forEach(word => {
+                if (text.includes(word)) negativeCount++;
+            });
+            
+            if (positiveCount > negativeCount) return "positive";
+            if (negativeCount > positiveCount) return "negative";
+            return "neutral";
+        }
+        
+        // Update UI based on mood analysis
+        function updateMoodIndicator(mood) {
+            const indicator = document.getElementById('moodIndicator');
+            
+            // Remove previous classes
+            indicator.classList.remove('positive', 'neutral', 'negative');
+            
+            // Add appropriate class and text
+            indicator.classList.add(mood);
+            
+            let moodText = '';
+            if (mood === 'positive') {
+                moodText = 'The cosmos senses your positive energy';
+            } else if (mood === 'negative') {
+                moodText = 'The cosmos acknowledges your struggle';
+            } else {
+                moodText = 'The cosmos feels your balanced state';
+            }
+            
+            indicator.textContent = moodText;
+            indicator.style.opacity = 1;
+        }
+        
+        // Get random element from array
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+        
+        // Fetch astronomical data
+        async function getAstronomicalData() {
+            try {
+                const response = await fetch('https://api.le-systeme-solaire.net/rest/bodies/earth');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching astronomical data:', error);
+                return null;
+            }
+        }
+        
+        // Generate divination result
+        function generateDivinationResult() {
+            // Get fortune based on mood
+            const fortune = getRandomElement(fortunes[moodCategory]);
+            
+            // Count celestial body types
+            const bodyCounts = {
+                planet: selectedBodies.filter(body => body.type === 'planet').length,
+                moon: selectedBodies.filter(body => body.type === 'moon').length,
+                star: selectedBodies.filter(body => body.type === 'star').length
+            };
+            
+            // Determine dominant celestial influence
+            let dominantType = 'star'; // default
+            if (bodyCounts.planet >= bodyCounts.moon && bodyCounts.planet >= bodyCounts.star) {
+                dominantType = 'planet';
+            } else if (bodyCounts.moon >= bodyCounts.planet && bodyCounts.moon >= bodyCounts.star) {
+                dominantType = 'moon';
+            }
+            
+            // Get celestial influence message
+            const influence = celestialInfluences[dominantType][moodCategory];
+            
+            // Get action advice
+            const advice = getRandomElement(actionAdvice[moodCategory]);
+            
+            return {
+                fortune,
+                influence,
+                advice
+            };
+        }
+        
+        // Display result in modal
+        function displayResult(result) {
+            document.getElementById('fortune').textContent = result.fortune;
+            document.getElementById('celestialInfluence').textContent = result.influence;
+            document.getElementById('actionAdvice').textContent = result.advice;
+            
+            let cosmicInfo = "The Oracle's wisdom is informed by Earth's current position in the cosmos.";
+            
+            if (astronomicalData) {
+                cosmicInfo = `The Oracle's wisdom is informed by Earth's current position: ${astronomicalData.perihelion.toLocaleString()} km from the Sun at perihelion, with a ${astronomicalData.sideralOrbit} day sidereal orbit, and a gravity of ${astronomicalData.gravity} m/s².`;
+            }
+            
+            document.getElementById('cosmicInfo').textContent = cosmicInfo;
+            
+            // Show modal with animation
+            const modal = document.getElementById('resultModal');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.style.opacity = 1;
+                modal.querySelector('.result-content').style.transform = 'scale(1)';
+            }, 10);
+        }
+        
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', async () => {
+            createBackgroundStars();
+            createCelestialBodies();
+            
+            // Prefetch astronomical data
+            astronomicalData = await getAstronomicalData();
+            
+            // Mood input event
+            const moodInput = document.getElementById('moodInput');
+            moodInput.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    moodCategory = analyzeMood(this.value);
+                    updateMoodIndicator(moodCategory);
+                } else {
+                    document.getElementById('moodIndicator').style.opacity = 0;
+                }
+                checkDivineButtonStatus();
+            });
+            
+            // Divine button event
+            document.getElementById('divineBtn').addEventListener('click', async () => {
+                // Show loading
+                document.getElementById('loading').style.display = 'flex';
+                
+                // Add delay for dramatic effect
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Generate result
+                const result = generateDivinationResult();
+                
+                // Hide loading and show result
+                document.getElementById('loading').style.display = 'none';
+                displayResult(result);
+            });
+            
+            // Close result modal
+            document.getElementById('closeResult').addEventListener('click', () => {
+                const modal = document.getElementById('resultModal');
+                modal.style.opacity = 0;
+                modal.querySelector('.result-content').style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
